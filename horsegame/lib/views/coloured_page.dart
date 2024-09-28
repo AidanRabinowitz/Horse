@@ -25,11 +25,11 @@ class ColouredPage extends StatelessWidget {
         ),
         if (hasHorse)
           Positioned(
-            left: horseX,
-            top: horseY,
+            left: 200,
+            top: 100,
             child: GestureDetector(
               onTap: onHorseTap,
-              child: Image.asset('assets/horse.jpg', width: 100),
+              child: Image.asset('images/horseDrawing.png', width: 100),
             ),
           ),
       ],

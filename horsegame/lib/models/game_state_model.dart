@@ -7,11 +7,11 @@ class GameStateModel {
   List<Color> pageColors = [];
   Random random = Random();
 
-  double horseX = 0.0;
-  double horseY = 0.0;
+  double horseX = 20.0;
+  double horseY = -5.0;
 
   void initializeGame() {
-    currentPage = 0;
+    currentPage = 1;
     horsePage = random.nextInt(10); // Random horse page
     pageColors = List<Color>.generate(10, (_) => _generateRandomColor());
 
@@ -20,10 +20,11 @@ class GameStateModel {
   }
 
   void _setRandomHorsePosition() {
-    // Ensure horse does not overlap with the top-left corner (timer area)
-    const double margin = 100.0; // Keep the horse away from the top-left corner
-    horseX = random.nextDouble() * (1.0 - margin) + margin;
-    horseY = random.nextDouble() * (1.0 - margin) + margin;
+    // // Horse appears only on the right half of the screen
+    // horseX = random.nextDouble();
+
+    // // Horse appears randomly vertically
+    // horseY = random.nextDouble();
   }
 
   void moveHorse(int currentPage) {

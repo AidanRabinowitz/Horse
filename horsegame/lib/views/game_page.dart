@@ -21,6 +21,8 @@ class GamePageState extends State<GamePage> {
   void initState() {
     super.initState();
     widget.timerViewModel.startTimer();
+    widget.gameViewModel
+        .initializeGame(); // Initialize the game when the page loads
   }
 
   @override
@@ -32,7 +34,8 @@ class GamePageState extends State<GamePage> {
             itemCount: widget.gameViewModel.pageColors.length,
             onPageChanged: (index) {
               setState(() {
-                widget.gameViewModel.moveHorseIfNeeded(index);
+                widget.gameViewModel
+                    .handlePageChange(index); // Handle page change in ViewModel
               });
             },
             itemBuilder: (context, index) {
