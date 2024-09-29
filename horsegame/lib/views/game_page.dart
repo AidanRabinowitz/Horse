@@ -35,7 +35,7 @@ class GamePageState extends State<GamePage> {
             onPageChanged: (index) {
               setState(() {
                 widget.gameViewModel
-                    .handlePageChange(index); // Handle page change in ViewModel
+                    .updateGame(index); // Call the new updateGame function
               });
             },
             itemBuilder: (context, index) {
@@ -52,6 +52,7 @@ class GamePageState extends State<GamePage> {
               );
             },
           ),
+
           // Timer displayed at the top-left corner
           Positioned(
             top: 20,

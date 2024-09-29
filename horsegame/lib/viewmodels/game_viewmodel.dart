@@ -24,4 +24,9 @@ class GameViewModel {
   void moveHorseIfNeeded(int currentPage) {
     _gameStateModel.moveHorse(currentPage);
   }
+
+  void updateGame(int currentPage) {
+    _gameStateModel
+        .updateGame(currentPage); // Call the new function in the model
+  }
 }
