@@ -9,7 +9,7 @@ class StartScreen extends StatelessWidget {
 
   const StartScreen({
     super.key,
-    required this.onStartGame, // Ensure onStartGame is required here
+    required this.onStartGame,
     required this.timerViewModel,
     required this.gameViewModel,
   });
@@ -17,15 +17,77 @@ class StartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Start Game'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed:
-              onStartGame, // Call the onStartGame when the button is pressed
-          child: const Text('Start Game'),
-        ),
+      body: Stack(
+        children: [
+          // Background gradient
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.blue, Colors.purple],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+          ),
+          // Content
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Game logo/icon
+                const Icon(
+                  Icons.pets,
+                  size: 100,
+                  color: Colors.white,
+                ),
+                const SizedBox(height: 20),
+                // Title
+                const Text(
+                  'Find the Horse!',
+                  style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 40),
+                // Instructions
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    'Swipe to find and click on the horse, as fast as you can!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white70,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 60),
+                // Start Game Button
+                ElevatedButton(
+                  onPressed: onStartGame,
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 15),
+                    backgroundColor: Colors.deepOrange,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: const Text(
+                    'Start Game',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
